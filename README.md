@@ -1,4 +1,4 @@
 w-shackleton.github.io
 ======================
 
-GitHub pages website
+Assorted projects and snippets.
