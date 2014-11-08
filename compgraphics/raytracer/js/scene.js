@@ -4,10 +4,11 @@
  * camera: vector of the camera
  * viewport: object of the corners of the viewport (tl, tr, bl, br)
  */
-function Scene(objs, camera, viewport) {
+function Scene(objs, camera, viewport, aperture) {
   this.objs = objs;
   this.camera = camera;
   this.viewport = viewport;
+  this.aperture = aperture;
   this.bg = new Colour(0, 0, 0);
 }
 
@@ -49,20 +50,57 @@ Scene.prototype.traceRay = function(ray, iters) {
   }
 
   var obj = collided.obj;
+  var objs = this.objs;
   var param = collided.param;
   var norm = collided.norm;
+  var point = ray.calc(param);
   if (iters == 0) {
     return { col: obj.props.amb.col };
   }
+
+  // Calculate diffuse reflection
+  // For each other finite object we model a light source somewhere in the
+  // object and check for shadows being cast.
+  var diffuse_colour = objs.map(function(light) {
+    if (light == obj) {
+      return null;
+    }
+    var source = light.randomPoint();
+    if (source === null) {
+      return null;
+    }
+
+    // Cast a ray to the light source
+    var ray_to_light = new Ray(point, source.subtract(point).unit());
+    // Check for intersections
+    if (objs.filter(function(block) {
+      if (block == obj) return false;
+      if (block == light) return false;
+      var intersection = block.intersect(ray_to_light);
+      return intersection !== null && intersection.param > 0;
+    }).length > 0) {
+      return null;
+    }
+    // Calculate luminance
+    return light.props.amb.col.mul(
+      obj.props.diff.col).mul(
+        norm.dot(ray_to_light.d));
+  }).filter(function(v) {
+    return v !== null;
+  }).reduce(function(acc, col) {
+    return acc.add(col);
+  }, BLACK);
 
   // We need to iterate specular reflection
 
   var reflection = ray.d.reflect(norm);
 
-  var new_ray = new Ray(ray.calc(param), deviate(reflection, obj.props.spec.stdev));
+  var new_ray = new Ray(point, deviate(reflection, obj.props.spec.stdev));
 
   var specular = this.traceRay(new_ray, iters-1);
   return { col:
-    obj.props.amb.col.add(obj.props.spec.col.mul(specular.col)),
+     obj.props.amb.col.add(
+         obj.props.spec.col.mul(specular.col)).add(
+         diffuse_colour),
   };
 }

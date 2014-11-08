@@ -40,3 +40,37 @@ Sphere.prototype.intersect = function(ray) {
       };
   }
 }
+
+Sphere.prototype.randomPoint = function() {
+  var r = Math.random() * this.r;
+  var theta = Math.random() * Math.PI * 2;
+  var phi = Math.acos(2*Math.random() - 1);
+  return new Vector(
+      this.c.x + r * Math.cos(theta) * Math.sin(phi),
+      this.c.y + r * Math.sin(theta) * Math.sin(phi),
+      this.c.z + r * Math.cos(phi)
+      );
+};
+
+
+function Plane(p, n, props) {
+  // Point on plane
+  this.p = p;
+  // Normal
+  this.n = n.unit();
+  // Properties
+  this.props = props;
+}
+
+// Returns the parameter of the ray's intersection with this plane, otherwise
+// returns null.
+Plane.prototype.intersect = function(ray) {
+  var denominator = this.n.dot(ray.d);
+  if (Math.abs(denominator) > 1e-6) {
+    return {
+      param: this.p.subtract(ray.o).dot(this.n),
+      norm: this.n
+    };
+  }
+  return null;
+}

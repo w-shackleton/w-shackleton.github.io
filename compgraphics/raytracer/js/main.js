@@ -3,17 +3,25 @@ $(document).ready(function() {
   var ctx = canvas.getContext("2d");
 
   var scene = new Scene([
+      // Left sphere
       new Sphere(new Vector(-1,1,0),1, new Props(
-          {col: new Colour(50, 0, 0)},
-          {col: WHITE.mul(0.3)},
+          {col: BLACK},
+          {col: new Colour(255, 0, 0)},
           {col: WHITE.mul(0.7), stdev: 0.1})),
-      new Sphere(new Vector(1,4,1),1, new Props(
+      // Light source
+      new Sphere(new Vector(0.5,4,1),1, new Props(
           {col: WHITE.mul(0.9)},
-          {col: WHITE.mul(0.3)},
+          {col: BLACK},
           {col: BLACK, stdev: 0})),
-      new Sphere(new Vector(2,0,0),0.5, new Props(
-          {col: WHITE.mul(0.7)},
-          {col: WHITE.mul(0.3)},
+      // Light source
+      new Sphere(new Vector(0.5,-2,-1),0.1, new Props(
+          {col: WHITE.mul(0.9)},
+          {col: BLACK},
+          {col: BLACK, stdev: 0})),
+      // Right sphere
+      new Sphere(new Vector(2,0,0),1, new Props(
+          {col: BLACK},
+          {col: WHITE.mul(1)},
           {col: WHITE.mul(0.5), stdev: 0.1})),
     ],
     new Vector(0, -4, 0),
@@ -22,7 +30,7 @@ $(document).ready(function() {
       tr: new Vector(1, -2, 1),
       bl: new Vector(-1, -2, -1),
       br: new Vector(1, -2, -1),
-    });
+    }, 0);
 
   var delta = 10;
 
@@ -37,7 +45,9 @@ $(document).ready(function() {
     var data = row.data;
     for (; y < canvas.height && y < dest_y; y++) {
       for (var x = 0; x < canvas.width; x++) {
-        var result = scene.trace(x / canvas.width, y / canvas.height);
+        var r_x = x + (Math.random() - 1);
+        var r_y = y + (Math.random() - 1);
+        var result = scene.trace(r_x / canvas.width, r_y / canvas.height);
         data[ptr] = (data[ptr] * rounds + result.col.r) / (rounds+1);
         ptr++;
         data[ptr] = (data[ptr] * rounds + result.col.g) / (rounds+1);
