@@ -23,6 +23,9 @@ Colour.prototype = {
         this.g * v,
         this.b * v);
   },
+  is_black: function() {
+    return this.r == 0 && this.g == 0 && this.b == 0;
+  },
 };
 
 WHITE = new Colour(255, 255, 255);

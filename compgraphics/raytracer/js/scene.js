@@ -4,18 +4,29 @@
  * camera: vector of the camera
  * viewport: object of the corners of the viewport (tl, tr, bl, br)
  */
-function Scene(objs, camera, viewport, aperture) {
+function Scene(objs, camera, viewport, aperture, bg) {
   this.objs = objs;
   this.camera = camera;
   this.viewport = viewport;
   this.aperture = aperture;
-  this.bg = new Colour(0, 0, 0);
+  this.bg = bg;
 }
 
 /**
  * Traces a ray. x and y are between 0 and 1.
  */
 Scene.prototype.trace = function(x, y) {
+  // Random point for the camera for aperture
+  //
+  var r = Math.random() * 0.1;
+  var theta = Math.random() * Math.PI * 2;
+  var phi = Math.acos(2*Math.random() - 1);
+  var new_camera = new Vector(
+      this.camera.x + r * Math.cos(theta) * Math.sin(phi),
+      this.camera.y + r * Math.sin(theta) * Math.sin(phi),
+      this.camera.z + r * Math.cos(phi)
+      );
+
   var left = Vector.lerp(this.viewport.tl, this.viewport.bl, y);
   var right = Vector.lerp(this.viewport.tr, this.viewport.br, y);
   var top = Vector.lerp(this.viewport.tl, this.viewport.tr, x);
@@ -25,7 +36,7 @@ Scene.prototype.trace = function(x, y) {
   var pos2 = Vector.lerp(top, bottom, y);
   var pos = pos1;
 
-  var ray = new Ray(this.camera, pos.subtract(this.camera).unit());
+  var ray = new Ray(new_camera, pos.subtract(new_camera).unit());
   return this.traceRay(ray, 5);
 }
 
@@ -65,6 +76,9 @@ Scene.prototype.traceRay = function(ray, iters) {
     if (light == obj) {
       return null;
     }
+    if (light.props.amb.col.is_black()) {
+      return null;
+    }
     var source = light.randomPoint();
     if (source === null) {
       return null;
@@ -72,6 +86,12 @@ Scene.prototype.traceRay = function(ray, iters) {
 
     // Cast a ray to the light source
     var ray_to_light = new Ray(point, source.subtract(point).unit());
+
+    // If we are on the wrong side for this light source, fail
+    if (norm.dot(ray_to_light.d) <= 0) {
+      return null;
+    }
+
     // Check for intersections
     if (objs.filter(function(block) {
       if (block == obj) return false;
