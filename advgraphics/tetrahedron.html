@@ -1,0 +1,47 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Tetrahedron</title>
+  <meta name="author" content="Will Shackleton">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <script id="shader-fs" type="x-shader/x-fragment">
+    precision mediump float;
+
+    varying vec4 vColour;
+
+    void main(void) {
+      gl_FragColor = vColour;
+    }
+  </script>
+
+  <script id="shader-vs" type="x-shader/x-vertex">
+    attribute vec3 aVertexPosition;
+    attribute vec4 aVertexColour;
+
+    uniform mat4 uMVMatrix;
+    uniform mat4 uPMatrix;
+
+    varying vec4 vColour;
+
+    void main(void) {
+      gl_Position = uPMatrix * uMVMatrix * vec4(aVertexPosition, 1.0);
+      vColour = aVertexColour;
+    }
+  </script>
+</head>
+
+<body onload="webGLStart();">
+  <canvas id="canvas" style="border: none;" width="500" height="500"></canvas>
+
+  <script src="js/gl-matrix.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/tetrahedron.js"></script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Tetrahedron</title>
+  <meta name="author" content="Will Shackleton">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <script id="shader-fs" type="x-shader/x-fragment">
+    precision mediump float;
+
+    #define M_PI 3.1415926535897932384626433832795
+
+    varying vec3 vSquarePosition;
+
+    uniform float uVertexTime;
+
+    void main(void) {
+      gl_FragColor = vec4(
+        sin(vSquarePosition.x * 6.0 * M_PI + uVertexTime) / 2.0 + 0.5,
+        1.0-(sin((vSquarePosition.x-vSquarePosition.y) * 6.0 * M_PI + uVertexTime) / 2.0 + 0.5),
+        sin(vSquarePosition.y * 10.0 * M_PI + uVertexTime) / 2.0 + 0.5,
+        1.0);
+    }
+  </script>
+
+  <script id="shader-vs" type="x-shader/x-vertex">
+    attribute vec3 aVertexPosition;
+
+    #define M_PI 3.1415926535897932384626433832795
+
+    #define R_PRIMARY 0.5
+    #define R_SECONDARY 0.2
+
+    uniform mat4 uMVMatrix;
+    uniform mat4 uPMatrix;
+
+    // The position on the square - we interpolate on this and then calculate our colours in the fragment shader for better results.
+    varying vec3 vSquarePosition;
+
+    void main(void) {
+      // Map our rectangle to a torus, then apply modelview and projection
+      gl_Position = uPMatrix * uMVMatrix *
+        vec4(
+          (R_PRIMARY + R_SECONDARY * cos(M_PI*2.0*aVertexPosition.y)) * cos(M_PI*2.0*aVertexPosition.x),
+          (R_PRIMARY + R_SECONDARY * cos(M_PI*2.0*aVertexPosition.y)) * sin(M_PI*2.0*aVertexPosition.x),
+          R_SECONDARY * sin(M_PI*2.0*aVertexPosition.y), 1.0);
+      vSquarePosition = aVertexPosition;
+    }
+  </script>
+</head>
+
+<body onload="webGLStart();">
+  <canvas id="canvas" style="border: none;" width="1024" height="768"></canvas>
+
+  <script src="js/gl-matrix.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/torus.js"></script>
+</body>
+</html>
