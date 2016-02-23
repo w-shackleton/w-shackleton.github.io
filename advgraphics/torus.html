@@ -21,10 +21,11 @@
     uniform float uVertexTime;
 
     void main(void) {
+      // Just quite a lot of pretty colour generating maths.
       gl_FragColor = vec4(
-        sin(vSquarePosition.x * 6.0 * M_PI + uVertexTime) / 2.0 + 0.5,
+        sin(vSquarePosition.x * 6.0 * M_PI + uVertexTime + sin(uVertexTime) / 3.0) / 2.0 + 0.5,
         1.0-(sin((vSquarePosition.x-vSquarePosition.y) * 6.0 * M_PI + uVertexTime) / 2.0 + 0.5),
-        sin(vSquarePosition.y * 10.0 * M_PI + uVertexTime) / 2.0 + 0.5,
+        sin(vSquarePosition.y * 10.0 * M_PI + uVertexTime + cos(uVertexTime * 1.3) / 3.0) / 2.0 + 0.5,
         1.0);
     }
   </script>

@@ -48,7 +48,8 @@ function setupCanvasMouse(canvas) {
       rotationX += diffX / 100;
       rotationY += diffY / 100;
       start = mousePos;
-      drawScene();
+      // Smoother but higher latency without this line.
+      // drawScene();
     }
   });
 }
