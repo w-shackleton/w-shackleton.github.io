@@ -12,6 +12,8 @@ function webGLStart() {
   gl.enable(gl.DEPTH_TEST);
 
   drawScene();
+
+  drawOnMove = true;
 }
 
 var gl;

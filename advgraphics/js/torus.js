@@ -13,6 +13,8 @@ function webGLStart() {
 
   drawScene();
 
+  drawOnMove = false;
+
   setInterval(function() {
     tick();
     drawScene();
