@@ -1,0 +1,19 @@
+.social-media-list {
+    list-style: none;
+
+    .icon {
+        width: 16px;
+        height: 16px;
+    }
+
+    .icon > svg {
+        display: inline-block;
+        vertical-align: middle;
+        width: 16px;
+        height: 16px;
+    }
+}
+
+.icon-license {
+    font-size: 0.8em;
+}

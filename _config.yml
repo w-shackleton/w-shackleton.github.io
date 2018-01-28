@@ -1,0 +1,12 @@
+# Site settings
+title: Will Shackleton
+email: hello@shackleton.io
+description: > # this means to ignore newlines until "baseurl:"
+  Will Shackleton - Blog / site
+baseurl: ""
+url: "https://www.shackleton.io"
+twitter_username: wshackleton
+github_username:  w-shackleton
+
+# Build settings
+markdown: kramdown

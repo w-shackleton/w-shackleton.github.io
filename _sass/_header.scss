@@ -1,0 +1,68 @@
+$big-screen: 768px;
+
+.header-my-name {
+    text-align: center;
+    font-family: 'Noto Serif', serif;
+    font-size: 2em;
+    padding-top: 1em;
+    a, div {
+        color: #F0F0F0;
+        text-decoration: none;
+    }
+}
+
+.index-header {
+    background-color: $purple;
+}
+
+.header-noindex {
+    padding-bottom: 3em;
+}
+
+.index-header-icons > div {
+    color: #F0F0F0;
+
+    @media screen and (min-width: $big-screen) {
+        padding-top: 5em;
+        text-align: center;
+        a {
+            text-decoration: none;
+        }
+    }
+    @media screen and (max-width: $big-screen) {
+        padding-left: 2em;
+        a p {
+            text-decoration: underline;
+        }
+    }
+}
+
+.index-header-icons > div p {
+    @media screen and (min-width: $big-screen) {
+        color: $purple;
+    }
+    @media screen and (max-width: $big-screen) {
+        display: inline-block;
+        color: #F0F0F0;
+        vertical-align: top;
+        padding-left: 1em;
+        padding-top: 1em;
+    }
+}
+
+.index-header-icons > div:hover p {
+    color: #F0F0F0;
+}
+
+.header-icon {
+    background-size: cover;
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    @media screen and (min-width: $big-screen) {
+        margin: auto;
+        display: block;
+        width: 100px;
+        height: 100px;
+    }
+}

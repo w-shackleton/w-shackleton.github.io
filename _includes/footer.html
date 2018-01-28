@@ -1,0 +1,39 @@
+<footer class="container-fluid">
+
+  <div class="row justify-content-center">
+    <div class="col-md-2">
+      <ul class="social-media-list">
+        {% if site.github_username %}
+        <li>
+          {% include icon-github.html username=site.github_username %}
+        </li>
+        {% endif %}
+
+        {% if site.twitter_username %}
+        <li>
+          {% include icon-twitter.html username=site.twitter_username %}
+        </li>
+        {% endif %}
+        <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
+      </ul>
+    </div>
+
+    <div class="col-md-2">
+      <p class="icon-license">
+        Icons made by
+        <a href="http://www.freepik.com" title="Freepik">Freepik</a>
+        from
+        <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
+        are licensed by
+        <a
+          href="http://creativecommons.org/licenses/by/3.0/"
+          title="Creative Commons BY 3.0"
+          target="_blank"
+        >
+          CC 3.0 BY
+        </a>
+      </p>
+    </div>
+  </div>
+
+</footer>

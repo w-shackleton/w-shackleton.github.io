@@ -1,16 +1,32 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <title>Will Shackleton</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+---
+layout: withheader
+---
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-  </head>
-  <body>
-    <h1>Work in progress</h1>
+<div class="row justify-content-md-center">
+  <div class="about col-lg-4">
+    My name is Will Shackleton, and I work on privacy and security at Facebook.
+  </div>
+</div>
 
-    Or, "testinprod"
-  </body>
-</html>
+<div class="home">
+  <ul class="post-list">
+    {% for post in site.posts %}
+      <div class="row justify-content-md-center">
+        <li class="col-md-5">
+          <h2>
+            <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+          </h2>
+
+          <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+        </li>
+      </div>
+
+      <div class="row justify-content-md-center">
+        <div class="col-md-5">
+          <hr />
+        </div>
+      </div>
+    {% endfor %}
+  </ul>
+
+</div>
