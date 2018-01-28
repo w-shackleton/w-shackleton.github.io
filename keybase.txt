@@ -1,0 +1,80 @@
+==================================================================
+https://keybase.io/shackleton
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://www.shackleton.io
+  * I am shackleton (https://keybase.io/shackleton) on keybase.
+  * I have a public key with fingerprint 6049 DD7B E978 37D7 4FA0  3467 16C1 BD8C DFDC E340
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "01011c9de768489a35ce947c3df3f94003b5559b57230cd79db2ae97c70f5bca90070a",
+      "fingerprint": "6049dd7be97837d74fa0346716c1bd8cdfdce340",
+      "host": "keybase.io",
+      "key_id": "16c1bd8cdfdce340",
+      "kid": "01011c9de768489a35ce947c3df3f94003b5559b57230cd79db2ae97c70f5bca90070a",
+      "uid": "b5b3f1646e4bfd624f25d86d652b0300",
+      "username": "shackleton"
+    },
+    "merkle_root": {
+      "ctime": 1517177660,
+      "hash_meta": "44669e0ec2dd534b570feb3dadd15269dbbd32761723d19f167f1c58355dc10b",
+      "seqno": 1996594
+    },
+    "revoke": {
+      "sig_ids": [
+        "ab99f4cf6eb72c8c7165b101c6dd89caf1a69c3e5a8afadffc65adfdba2780bc0f"
+      ]
+    },
+    "service": {
+      "hostname": "www.shackleton.io",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "ctime": 1517177663,
+  "expire_in": 157680000,
+  "prev": "2bee950ad0a13cb0305e072a47ee471360f907b7b3a4c48d1907c7c27484daea",
+  "seqno": 13,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+
+owGtU11sFFUY3dVClmqRKNQg1IdRQ0gquXfu39yVGMU0JPaBBOWhtLje3+6k251l
+Zrq1lmKAlCAsQfsiL8af1Ih/aIwRolbAviC8GEKMLaCpRAMP1OiD1cSId1aMxvjo
+vNzcO+c758w5c59ruzlXyLefmmp8c/HyQ/mzV2Vua7W7b9STkR7xiqPegGkupqJN
+kpYGQu0VPQABhIprw2iAAy4QUYZjppC2yHIMAJKEEC4J8xFQmnEtfWE4UwxYIpXg
+ADAgvE7PhtV+E9fisJo6Wgow15pJhwwQ0wxbARCmDFIFpQ6UtloZhIEbLEdJNuHM
+SZGYdWHkztym1LT3H/j/2fdQk04SiSykmBosraY+tj7RAdWU+BIgkOkOJSauikHj
+0ElZqIGKSaOqN9bpDZrYbUpxFKVZvCoNMxAkkEHGKAXuE0VSLg2aVLhZjCnlBhjl
+a00QdgaBNRJpoTUkPnU+pUY+o9AZ15A7U8xCRQJEiFYQSOckMdurkVPgnBKOnYPY
+1KMBk4knYb8LLvGKvZ6QJ3dybrGy1Ejmq0C59Il0uSmqdcCVsFBQrpAhIhBWaGsV
+JW7RUvgsAFIB620by+Tieqia9FlXNzIYHh5e93cOf9ZWi6M0UlHFvS6naS0pZvGk
+I7Um3sjSDaaSDKva/S5uom7iJHQxFqFD/js51OmZp2phbEphhiCuauCeTMfUHaUv
+jeEECA0ERCrriRjAfIGZMZhBRIHlgEkmkcAKBy5N4PpXPsMB1sKIf0TppFLRn1Ub
+9ldFOhQbb6z12fzqlly+kFu86KbsIuValyz763b9Lgq56dyjG35Z9XalPDP14Kau
+tsb+iY3euSfX7Oj4cPPhzwvbe9dvfP+9i5venZE/Httnv5DKTtC54T3L2l9evrJt
+/vro5PX8Zz9F9y9V3d+laxeiqeDgnYfnOyY+vXTo149+nj56+Up1YccDu/Z+P9M4
+/3Rrff+JL9c8Dl7oeqVr+fQHgy1ftX9yPPfM3jvKm1Ff65nbxgdf7NlyfraX8FX+
+zjdeb/l2/bGlrx55c0nhHnRi22Nzuwo9i08uquzueensffdeeeTjH14bnz80d+Gu
+5w88cXtl8tK+tUdXrDzVN6tHz+05OP71O6vTLTDsbqw40H7LyG+7r93a2HpmvHR1
+tuPC6ePx3RuuvRVPnl54uG3sDw==
+=zUzJ
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/shackleton
+
+==================================================================
+
