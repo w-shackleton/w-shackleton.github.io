@@ -11,4 +11,4 @@ time round:
 * All images are inline SVG
 * There's no Javascript
 * Two CSS files (my CSS + Bootstrap)
-* Three fonts (this is a bit extravagent)
+* Three fonts (this is a bit extravagant)
