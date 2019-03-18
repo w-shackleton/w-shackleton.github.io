@@ -8,3 +8,19 @@
     padding-top: 3em;
     padding-bottom: 3em;
 }
+
+figure {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    padding: 1em;
+    border: 2px $purple solid;
+}
+
+figcaption {
+    padding-top: 0.5em;
+    padding-right: 4em;
+    text-align: right;
+}
