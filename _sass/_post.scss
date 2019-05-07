@@ -24,3 +24,17 @@ figcaption {
     padding-right: 4em;
     text-align: right;
 }
+
+.two-img, .three-img {
+    text-align: center;
+}
+
+.two-img img {
+    width: 45%;
+    display: inline;
+}
+
+.three-img img {
+    width: 30%;
+    display: inline;
+}
