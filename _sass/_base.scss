@@ -24,3 +24,10 @@ body {
 img {
     width: 100%;
 }
+
+.staticSizeImg img {
+    width: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}

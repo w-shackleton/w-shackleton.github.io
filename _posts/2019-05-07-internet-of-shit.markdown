@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  Managing your Internet Of Shit
+title:  Managing your Internet Of Sh*t
 date:   2019-05-07 15:00:00 +0000
 categories: blog
 ---
