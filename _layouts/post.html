@@ -5,7 +5,10 @@ layout: default
 
   <div class="row justify-content-md-center">
     <header class="post-header col-lg-6">
-      <h1 class="post-title" itemprop="name headline">{{ page.title }}</h1>
+      <h1 class="post-title {% if page.smallcaps %}title-smallcaps{% endif %}"
+                  itemprop="name headline">
+        {{ page.title }}
+      </h1>
       <p class="post-meta">
         <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%b %-d, %Y" }}</time>
       </p>

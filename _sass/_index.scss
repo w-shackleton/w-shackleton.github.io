@@ -11,6 +11,11 @@
         padding-top: 2em;
     }
 
+    h2.title-smallcaps {
+        text-transform: none;
+        font-variant: small-caps;
+    }
+
     .post-meta {
         font-size: 0.8em;
     }

@@ -2,6 +2,11 @@
     text-align: center;
     text-transform: uppercase;
     padding-top: 6em;
+
+    h1.title-smallcaps {
+        text-transform: none;
+        font-variant: small-caps;
+    }
 }
 
 .post-content {
