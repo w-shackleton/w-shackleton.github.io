@@ -30,6 +30,12 @@ figcaption {
     text-align: right;
 }
 
+blockquote {
+    margin-left: 1em;
+    border-left: 2px $purple solid;
+    padding-left: 1em;
+}
+
 .two-img, .three-img {
     text-align: center;
 }

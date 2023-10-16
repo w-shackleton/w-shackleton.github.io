@@ -1,0 +1,31 @@
+---
+layout: post
+title:  Automating Product Deprecation
+date:   2022-06-23 10:00:00 +0000
+categories: blog
+---
+
+I [gave a
+talk](https://www.usenix.org/conference/pepr22/presentation/shackleton) at
+[PEPR '22](https://www.usenix.org/conference/pepr22) about my work at Meta to
+safely, thoroughly and automatically deprecate products, their code and their
+data.
+
+> Heavily integrated products like social networks are composed of many
+interconnected products and features. Over time, new features are built and
+deployed, and eventually their usage can drop to a point where some of these
+features need to be turned off and removed. Meta is establishing a set of best
+practices and processes for deprecating products to ensure that these
+operations are conducted safely and rigorously.
+
+> This talk will address how Meta handles “Product Deprecation”, the process of
+turning off an interconnected feature and deleting its code and user data
+safely and automatically. Topics we will discuss include: how we automate
+removal of dead data, why we need automated dead code removal as well, and how
+we have provided engineers with tooling to understand how code and data are
+being used to allow them to make decisions that unblock these automated removal
+systems.
+
+<center>
+<iframe class="video" src="https://www.youtube.com/embed/IBhT30535Ro?si=efr0prYZTZRjrBfQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</center>
